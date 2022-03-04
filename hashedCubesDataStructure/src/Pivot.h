@@ -1,7 +1,7 @@
 #pragma once
 
 class Pivot {
- public:
+public:
   Pivot() = default;
   Pivot(PivotPointSize start_index, PivotPointSize end_index) {
     pivot_start_index_ = start_index;

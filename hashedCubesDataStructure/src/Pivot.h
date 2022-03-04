@@ -4,8 +4,7 @@ class Pivot {
 public:
   Pivot() = default;
   Pivot(PivotPointSize start_index, PivotPointSize end_index) {
-    pivot_start_index_ = start_index;
-    pivot_end_index_ = end_index;
+    pivot_start_index_ = start_index;pivot_end_index_ = end_index;
   }
   Pivot(const Pivot&) = default;
 

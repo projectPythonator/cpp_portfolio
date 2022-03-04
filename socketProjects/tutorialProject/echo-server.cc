@@ -13,12 +13,12 @@ int run_server(){
   int addrlen = sizeof(address);
   char buffer[1024] = {0};
   char *message = "Hello from server";
-  
+
   if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
     perror("socket failed on creation");
     return EXIT_FAILURE;
   }
-  if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, 
+  if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
                                                       &opt, sizeof(opt))) {
     perror("setsockopt failed on call");
     return EXIT_FAILURE;
@@ -26,7 +26,7 @@ int run_server(){
   address.sin_family = AF_INET;
   address.sin_addr.s_addr = INADDR_ANY;
   address.sin_port = htons(PORT);
-  
+
   if (bind(server_fd, (struct sockaddr *) &address, sizeof(address))<0) {
     perror("bind failure");
     return EXIT_FAILURE;
@@ -35,7 +35,7 @@ int run_server(){
     perror("listen failure");
     return EXIT_FAILURE;
   }
-  if ((client_socket = accept(server_fd, (struct sockaddr *) &address, 
+  if ((client_socket = accept(server_fd, (struct sockaddr *) &address,
                                           (socklen_t*) &addrlen)) < 0) {
     perror("accept failure");
     return EXIT_FAILURE;
@@ -46,7 +46,7 @@ int run_server(){
     printf("hello message sent\n");
   }
   return EXIT_SUCCESS;
-    
+
 }
 
 int main() {

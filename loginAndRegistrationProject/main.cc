@@ -18,9 +18,9 @@ bool is_logged_in() {
 
 bool register_user(){
   string username, password;
-  cout << "select a username: "; 
+  cout << "select a username: ";
   cin >> username;
-  cout << "select a password: "; 
+  cout << "select a password: ";
   cin >> password;
   ofstream file;
   file.open("./" + username + ".txt");
@@ -35,7 +35,7 @@ int main(){
   cin >> option;
   while(option){
     if (option == 1) {
-      register_user(); 
+      register_user();
     }else if(option == 2){
       bool res = is_logged_in();
       if (!res) {

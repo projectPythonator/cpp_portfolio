@@ -21,8 +21,8 @@ int run_client() {
   if (inet_pton(AF_INET, "127.0.0.1", &server_addr.sin_addr) <= 0) {
     perror("address not supported");
     return EXIT_FAILURE;
-  } 
-  if (connect(client_fd, (struct sockaddr *) &server_addr, 
+  }
+  if (connect(client_fd, (struct sockaddr *) &server_addr,
                                   sizeof(server_addr)) < 0) {
     perror("failed to connect");
     return EXIT_FAILURE;

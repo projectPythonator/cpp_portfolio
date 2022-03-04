@@ -1,20 +1,20 @@
 #pragma once
 
 class Pivot {
-public:
+ public:
   Pivot() = default;
   Pivot(PivotPointSize start_index, PivotPointSize end_index) {
     pivot_start_index_ = start_index;
     pivot_end_index_ = end_index;
   }
   Pivot(const Pivot&) = default;
-  
+
   inline bool empty() const;
   inline PivotPointSize size() const;
 
   inline PivotPointSize front() const;
   inline PivotPointSize back() const;
-  
+
   inline bool operator<(const Pivot& other) const;
   inline bool operator>(const Pivot& other) const;
 
@@ -24,7 +24,7 @@ public:
   inline bool endAfter(const Pivot& other) const;
   inline bool endBefore(const Pivot& other) const;
 
-protected:
+ protected:
   PivotPointSize pivot_start_index_;
   PivotPointSize pivot_end_index_;
 };
@@ -68,4 +68,3 @@ bool Pivot::endAfter(const Pivot& other) const {
 bool Pivot::endBefore(const Pivot& other) const {
   return back() <= other.front();
 }
-
